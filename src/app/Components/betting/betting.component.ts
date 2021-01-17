@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { BettingInterface } from 'src/app/Model/betting.model';
@@ -6,18 +6,20 @@ import { CodeApiService } from 'src/app/service/code-api.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-betting',
   templateUrl: './betting.component.html',
   styleUrls: ['./betting.component.css']
 })
-export class BettingComponent implements OnInit {
+export class BettingComponent implements OnInit,OnDestroy {
 
   dataSource;
   selectedPlayers:BettingInterface[] = [];
+  selectedPlayersSubscription: Subscription;
   constructor(private codaApi: CodeApiService) { }
-  
+
   displayedColumns: string[] = ['select', 'player name', 'level', 'avatar', 'bet', 'wins', 'lost', 'price'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -39,9 +41,10 @@ export class BettingComponent implements OnInit {
       }
     )} else {
       this.dataSource = new MatTableDataSource<BettingInterface>(this.codaApi.bettingData);
+      this.dataSource.paginator = this.paginator;
     }
 
-    this.codaApi.selectedPlayers$.subscribe(players => {
+    this.selectedPlayersSubscription = this.codaApi.selectedPlayers$.subscribe(players => {
       this.selectedPlayers = players;
     })
   }
@@ -50,5 +53,11 @@ export class BettingComponent implements OnInit {
   onSelect(i, eleData){
     this.codaApi.setBettingPlayer(i, eleData);
   }
+
+  ngOnDestroy(): void {
+   this.selectedPlayers = [];
+   this.selectedPlayersSubscription.unsubscribe();
+  }
+  
 
 }

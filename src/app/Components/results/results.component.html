@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card" *ngFor="let ele of firstFivePlayers;let i = index">
+    <div class="card" *ngFor="let ele of firstFivePlayers;let i = index" [ngClass]="ele.Won?'won':'lost'">
         <div class="header-group">
             <div class="avatar"><img [src]="ele['Profile Image']"></div>
             <div class="contentGroup">
@@ -25,7 +25,7 @@
 </div>
 
 <div class="container">
-    <div style="padding: 20px">
+    <div style="padding: 20px;left: 50%;margin-top: 100px;">
         <button class="betBtn" mat-raised-button color="primary">
             {{bet}}
         </button>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="container">
-    <div class="card" *ngFor="let ele of lastFourPlayers;let i = index">
+    <div class="card" *ngFor="let ele of lastFourPlayers;let i = index" [ngClass]="ele.Won?'won':'lost'">
         <div class="header-group">
             <div class="avatar"><img [src]="ele['Profile Image']"></div>
             <div class="contentGroup">
