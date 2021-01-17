@@ -27,7 +27,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.selectedPlayersSubscription = this.codaApi.selectedPlayers$.subscribe(players => {
-      console.log(players)
       if(players.length>0) {
         this.selectedPlayers = players;
         this.bet = this.codaApi.randomBet;
