@@ -1,0 +1,79 @@
+.container {
+    display: flex; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.playersSelected {
+    flex: 1;
+}
+
+.playersList {
+    flex: 3;
+}
+
+.selectedPlayers { 
+    display: flex;
+    padding: 10px;
+    background-color: aliceblue;
+}
+
+.avatar {
+    flex: 1;
+}
+.contentGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+.price {
+    flex: 1;
+}
+
+.gameHistory {
+    display: flex;
+}
+
+.pts {
+    padding: 5px;
+}
+table {
+    width: 100%;
+}
+
+img{
+    max-width: 35px;
+}
+
+h1{
+    padding: 5px;
+}
+
+.startBtn {
+    width: 100%;
+    padding: 5px;
+    border-radius: 0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.basicFlex {
+    display: flex;
+}
+.basicFlex p {
+    margin: revert;
+}
+
+.selectedPlayers img{
+    max-width: 75px;
+}
+
+.textSelf {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(253, 0, 0, 0.481);
+}

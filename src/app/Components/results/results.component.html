@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="card" *ngFor="let ele of firstFivePlayers;let i = index">
+        <div class="header-group">
+            <div class="avatar"><img [src]="ele['Profile Image']"></div>
+            <div class="contentGroup">
+                <div class="basicFlex"><b>{{ele.Name}}</b></div>
+                <div class="basicFlex">
+                    <p>Level{{ele.Level}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="price">
+                <img src="../../../assets/images/price.png">{{ele.Price}}
+            </div>
+            <div class="basicFlex"><img src="../../../assets/images/bet.png">
+                <p>{{ele.Bet}}</p>
+            </div>
+            <div class="basicFlex"><img src="../../../assets/images/trophy.png">
+                <p>{{ele.Wins}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="padding: 20px">
+        <button class="betBtn" mat-raised-button color="primary">
+            {{bet}}
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card" *ngFor="let ele of lastFourPlayers;let i = index">
+        <div class="header-group">
+            <div class="avatar"><img [src]="ele['Profile Image']"></div>
+            <div class="contentGroup">
+                <div class="basicFlex"><b>{{ele.Name}}</b></div>
+                <div class="basicFlex">
+                    <p>Level{{ele.Level}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="price">
+                <img src="../../../assets/images/price.png">{{ele.Price}}
+            </div>
+            <div class="basicFlex"><img src="../../../assets/images/bet.png">
+                <p>{{ele.Bet}}</p>
+            </div>
+            <div class="basicFlex"><img src="../../../assets/images/trophy.png">
+                <p>{{ele.Wins}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<button class="backBtn" mat-raised-button color="primary">
+    <a routerLink=''>BACK</a>
+</button>
